@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 
 namespace LameUI
@@ -146,14 +147,22 @@ namespace LameUI
 
 		private void btnStart_Click(object sender, EventArgs e)
 		{
-			Process process = new Process();
-			process.StartInfo.UseShellExecute = true;
-			process.StartInfo.RedirectStandardOutput = false;
-			process.StartInfo.RedirectStandardOutput = false;
-			process.StartInfo.FileName = encoderFileName;
-			process.StartInfo.Arguments = String.Concat(options, " \"", path, '\\', filename, extension, "\" \"", path, '\\', filename, ".mp3\"");
+			btnAddArgs_Click(null, null);
 
-			process.Start();
+			if (File.Exists("lame.exe"))
+			{
+
+				Process process = new Process();
+				process.StartInfo.UseShellExecute = true;
+				process.StartInfo.RedirectStandardOutput = false;
+				process.StartInfo.RedirectStandardOutput = false;
+				process.StartInfo.FileName = encoderFileName;
+				process.StartInfo.Arguments = String.Concat(options, " \"", path, '\\', filename, extension, "\" \"", path, '\\', filename, ".mp3\"");
+
+				process.Start();
+			}
+			else
+				MessageBox.Show(encoderFileName + " wasn't found. Please download " + encoderFileName, "Encoder not found.",  MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		private void btnOpen_Click(object sender, EventArgs e)
