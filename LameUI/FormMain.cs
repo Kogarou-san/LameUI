@@ -178,9 +178,12 @@ namespace LameUI
 
 		private void btnOpen_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog openFileDialog = new OpenFileDialog();
-			openFileDialog.Filter = "WAVE audio files|*.wav";
-			openFileDialog.Title = "Select a WAVE File";
+			OpenFileDialog openFileDialog = new OpenFileDialog
+			{
+				Filter = "WAVE audio files|*.wav",
+				Title = "Select a WAVE File"
+			};
+
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				path = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
