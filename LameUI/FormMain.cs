@@ -43,10 +43,8 @@ namespace LameUI
 			{
 				bitrate = String.Concat(" --abr ", txtBoxBitrate.Text);
 			}
-			
 
-			options = String.Concat(bitrate," -m ", comboBoxMode.SelectedItem.ToString()[0],
-									" --noreplaygain", " -q ", comboBoxNoiseShaping.Text);
+			options = String.Concat(bitrate," -m ", comboBoxMode.SelectedItem.ToString()[0], " --noreplaygain", " -q ", comboBoxNoiseShaping.Text);
 
 			txtBoxCommand.Text = String.Concat(encoderFileName, options, " \"", path, '\\', filename, extension, "\" \"", path, '\\', filename, ".mp3\"");
 
@@ -66,16 +64,8 @@ namespace LameUI
 				}
 
 				case 1:    //CBR
-				{
-					comboBoxQuality.Enabled = false;
-					labelQuality.Enabled = false;
-					labelBitrate.Enabled = true;
-					txtBoxBitrate.Enabled = true;
-					break;
-				}
-
 				case 2:    //ABR
-				{
+					{
 					comboBoxQuality.Enabled = false;
 					labelQuality.Enabled = false;
 					labelBitrate.Enabled = true;
@@ -83,11 +73,6 @@ namespace LameUI
 					break;
 				}
 			}
-		}
-
-		private void comboBoxReplayGain_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			//nada
 		}
 
 		private void btnHelp_Click(object sender, EventArgs e)
@@ -169,11 +154,6 @@ namespace LameUI
 			process.StartInfo.Arguments = String.Concat(options, " \"", path, '\\', filename, extension, "\" \"", path, '\\', filename, ".mp3\"");
 
 			process.Start();
-		}
-
-		private void comboBoxMode_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			//switch(comboBoxMode.SelectedIndex)
 		}
 
 		private void btnOpen_Click(object sender, EventArgs e)

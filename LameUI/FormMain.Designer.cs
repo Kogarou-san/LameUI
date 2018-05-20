@@ -218,7 +218,6 @@
 			this.comboBoxReplayGain.Name = "comboBoxReplayGain";
 			this.comboBoxReplayGain.Size = new System.Drawing.Size(125, 21);
 			this.comboBoxReplayGain.TabIndex = 11;
-			this.comboBoxReplayGain.SelectedIndexChanged += new System.EventHandler(this.comboBoxReplayGain_SelectedIndexChanged);
 			// 
 			// labelReplayGain
 			// 
@@ -277,7 +276,6 @@
 			this.comboBoxMode.Name = "comboBoxMode";
 			this.comboBoxMode.Size = new System.Drawing.Size(125, 21);
 			this.comboBoxMode.TabIndex = 1;
-			this.comboBoxMode.SelectedIndexChanged += new System.EventHandler(this.comboBoxMode_SelectedIndexChanged);
 			// 
 			// btnUpdate
 			// 
